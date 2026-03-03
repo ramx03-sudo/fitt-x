@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, PresentationControls } from '@react-three/drei';
+import { Float } from '@react-three/drei';
 import * as THREE from 'three';
 import { useTheme } from '../context/ThemeContext';
 
@@ -29,9 +29,7 @@ function MinimalBand({ isDark }) {
                     wireframe
                     transparent
                     opacity={0.15}
-                    blending={THREE.NormalBlending}
                     depthWrite={false}
-                    depthTest={true}
                 />
             </mesh>
 
@@ -42,10 +40,8 @@ function MinimalBand({ isDark }) {
                     color="#86868b"
                     wireframe
                     transparent
-                    opacity={0.3}
-                    blending={THREE.NormalBlending}
+                    opacity={0.35}
                     depthWrite={false}
-                    depthTest={true}
                 />
             </mesh>
 
@@ -55,10 +51,8 @@ function MinimalBand({ isDark }) {
                 <meshBasicMaterial
                     color={isDark ? "#ffffff" : "#000000"}
                     transparent
-                    opacity={0.8}
-                    blending={THREE.NormalBlending}
-                    depthWrite={true}
-                    depthTest={true}
+                    opacity={0.85}
+                    depthWrite={false}
                 />
             </mesh>
         </group>
@@ -69,23 +63,20 @@ export default function FitnessBand3D() {
     const { isDark } = useTheme();
 
     return (
-        <div style={{ width: '100%', height: '100%', cursor: 'grab', position: 'relative', zIndex: 10 }}>
-            {/* Glow backdrop behind the model - changed to seamless CSS var */}
-            <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '300px', height: '300px', background: 'radial-gradient(circle at center, var(--glow-color) 0%, transparent 70%)', filter: 'blur(40px)', zIndex: -1 }}></div>
+        <div style={{ width: '100%', height: '100%', position: 'relative', zIndex: 10 }}>
+            {/* Glow backdrop */}
+            <div style={{
+                position: 'absolute', top: '50%', left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '300px', height: '300px',
+                background: 'radial-gradient(circle at center, var(--glow-color) 0%, transparent 70%)',
+                filter: 'blur(40px)', zIndex: -1
+            }} />
 
             <Canvas camera={{ position: [0, 0, 7], fov: 40 }} gl={{ alpha: true }}>
-                <PresentationControls
-                    global
-                    config={{ mass: 2, tension: 500 }}
-                    snap={{ mass: 4, tension: 1500 }}
-                    rotation={[0, 0, 0]}
-                    polar={[-Math.PI / 4, Math.PI / 4]}
-                    azimuth={[-Math.PI / 2, Math.PI / 2]}
-                >
-                    <Float speed={1.5} rotationIntensity={0} floatIntensity={0.3}>
-                        <MinimalBand isDark={isDark} />
-                    </Float>
-                </PresentationControls>
+                <Float speed={1.5} rotationIntensity={0} floatIntensity={0.3}>
+                    <MinimalBand isDark={isDark} />
+                </Float>
             </Canvas>
         </div>
     );
