@@ -29,8 +29,9 @@ function MinimalBand({ isDark }) {
                     wireframe
                     transparent
                     opacity={0.15}
-                    blending={isDark ? THREE.AdditiveBlending : THREE.NormalBlending}
+                    blending={THREE.NormalBlending}
                     depthWrite={false}
+                    depthTest={true}
                 />
             </mesh>
 
@@ -42,8 +43,9 @@ function MinimalBand({ isDark }) {
                     wireframe
                     transparent
                     opacity={0.3}
-                    blending={isDark ? THREE.AdditiveBlending : THREE.NormalBlending}
+                    blending={THREE.NormalBlending}
                     depthWrite={false}
+                    depthTest={true}
                 />
             </mesh>
 
@@ -54,8 +56,9 @@ function MinimalBand({ isDark }) {
                     color={isDark ? "#ffffff" : "#000000"}
                     transparent
                     opacity={0.8}
-                    blending={isDark ? THREE.AdditiveBlending : THREE.NormalBlending}
-                    depthWrite={false}
+                    blending={THREE.NormalBlending}
+                    depthWrite={true}
+                    depthTest={true}
                 />
             </mesh>
         </group>

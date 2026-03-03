@@ -85,7 +85,7 @@ export default function About() {
                                 <h4 style={{ fontWeight: '600', marginBottom: '0.8rem', fontSize: '16px', color: 'var(--text-primary)' }}>Key Leadership Strengths:</h4>
                                 <ul style={{ listStyleType: 'none', padding: 0, margin: 0, color: 'var(--text-secondary)', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                                     <li>• Software engineering & technical architecture</li>
-                                    <li>• Apple-inspired design systems & user experience</li>
+                                    <li>• Design systems & user experience</li>
                                     <li>• Brand aesthetic & visual storytelling</li>
                                     <li>• AI-assisted prototyping & product execution</li>
                                     <li>• Multidisciplinary creative direction</li>
