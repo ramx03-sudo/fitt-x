@@ -36,7 +36,7 @@ function MinimalBand({ isDark, mouse }) {
     });
 
     return (
-        <group ref={groupRef} scale={1.3} rotation={[0.4, 0, 0]}>
+        <group ref={groupRef} scale={1.2} rotation={[0.4, 0, 0]}>
             {/* Outer clean wireframe */}
             <mesh rotation={[Math.PI / 2, 0, 0]}>
                 <torusGeometry args={[1.5, 0.35, 32, 100]} />
@@ -103,7 +103,7 @@ export default function FitnessBand3D() {
                 filter: 'blur(40px)', zIndex: -1
             }} />
 
-            <Canvas camera={{ position: [0, 0, 7], fov: 40 }} gl={{ alpha: true }}>
+            <Canvas camera={{ position: [0, 0, 10], fov: 40 }} gl={{ alpha: true }}>
                 <Float speed={1.5} rotationIntensity={0} floatIntensity={0.3}>
                     <MinimalBand isDark={isDark} mouse={mouse} />
                 </Float>

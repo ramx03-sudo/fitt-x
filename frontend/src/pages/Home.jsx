@@ -88,7 +88,7 @@ export default function Home() {
                 </div>
 
                 {/* Massive center product display */}
-                <div style={{ width: '100%', height: '800px', position: 'relative' }} className="animate-fade-up delay-100">
+                <div style={{ width: 'min(100%, 800px)', height: '600px', position: 'relative', margin: '0 auto', overflow: 'hidden' }} className="animate-fade-up delay-100">
                     <FitnessBand3D />
                 </div>
             </section>
