@@ -1,18 +1,34 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Float } from '@react-three/drei';
 import * as THREE from 'three';
 import { useTheme } from '../context/ThemeContext';
 
-function MinimalBand({ isDark }) {
+function MinimalBand({ isDark, mouse }) {
     const groupRef = useRef();
     const innerRef = useRef();
 
+    // Smoothed target rotation from mouse
+    const targetX = useRef(0);
+    const targetY = useRef(0);
+    const currentX = useRef(0);
+    const currentY = useRef(0);
+
     useFrame((state) => {
         const t = state.clock.getElapsedTime();
+
+        // Update targets from mouse position (-1 to 1 range → subtle tilt)
+        targetX.current = mouse.current.y * 0.4;  // tilt up/down
+        targetY.current = mouse.current.x * 0.6;  // tilt left/right
+
+        // Smooth lerp toward target
+        currentX.current += (targetX.current - currentX.current) * 0.05;
+        currentY.current += (targetY.current - currentY.current) * 0.05;
+
         if (groupRef.current) {
-            groupRef.current.rotation.y = t * 0.2;
-            groupRef.current.rotation.x = Math.sin(t * 0.5) * 0.1;
+            // Auto spin + mouse-driven tilt layered on top
+            groupRef.current.rotation.y = t * 0.2 + currentY.current;
+            groupRef.current.rotation.x = Math.sin(t * 0.5) * 0.1 + currentX.current;
         }
         if (innerRef.current) {
             innerRef.current.rotation.y = -t * 0.1;
@@ -62,6 +78,20 @@ function MinimalBand({ isDark }) {
 export default function FitnessBand3D() {
     const { isDark } = useTheme();
 
+    // Shared mouse ref — normalized -1 to 1
+    const mouse = useRef({ x: 0, y: 0 });
+
+    useEffect(() => {
+        const handleMouseMove = (e) => {
+            mouse.current = {
+                x: (e.clientX / window.innerWidth) * 2 - 1,
+                y: -((e.clientY / window.innerHeight) * 2 - 1),
+            };
+        };
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, []);
+
     return (
         <div style={{ width: '100%', height: '100%', position: 'relative', zIndex: 10 }}>
             {/* Glow backdrop */}
@@ -75,7 +105,7 @@ export default function FitnessBand3D() {
 
             <Canvas camera={{ position: [0, 0, 7], fov: 40 }} gl={{ alpha: true }}>
                 <Float speed={1.5} rotationIntensity={0} floatIntensity={0.3}>
-                    <MinimalBand isDark={isDark} />
+                    <MinimalBand isDark={isDark} mouse={mouse} />
                 </Float>
             </Canvas>
         </div>
