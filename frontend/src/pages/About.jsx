@@ -31,7 +31,7 @@ export default function About() {
 
                         <div style={{ position: 'relative', zIndex: 20, display: 'flex', flexDirection: 'column', flex: 1 }}>
                             <h2 style={{ fontSize: '32px', fontWeight: '700', marginBottom: '0.5rem' }}>Sukumar Pilli</h2>
-                            <h3 style={{ fontSize: '18px', fontWeight: '500', color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>Co-Founder, Director Of Vision & Strategy</h3>
+                            <h3 style={{ fontSize: '18px', fontWeight: '500', color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>Founder & CEO</h3>
                             <a href="https://www.linkedin.com/in/satya-sukumar-pilli-b3bb59218/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--text-primary)', textDecoration: 'none', marginBottom: '2rem', fontSize: '14px', fontWeight: '500' }}>
                                 View LinkedIn <ExternalLink size={16} />
                             </a>
@@ -70,7 +70,7 @@ export default function About() {
 
                         <div style={{ position: 'relative', zIndex: 20, display: 'flex', flexDirection: 'column', flex: 1 }}>
                             <h2 style={{ fontSize: '32px', fontWeight: '700', marginBottom: '0.5rem' }}>Ram Mamillapalli</h2>
-                            <h3 style={{ fontSize: '18px', fontWeight: '500', color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>Co-Founder, Director Of Technology & Design</h3>
+                            <h3 style={{ fontSize: '18px', fontWeight: '500', color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>Co-Founder & COO</h3>
                             <a href="https://www.linkedin.com/in/ram-mamillapalli/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--text-primary)', textDecoration: 'none', marginBottom: '2rem', fontSize: '14px', fontWeight: '500' }}>
                                 View LinkedIn <ExternalLink size={16} />
                             </a>
