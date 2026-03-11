@@ -10,20 +10,20 @@ export default function About() {
             <section style={{ paddingTop: '150px', paddingBottom: '80px', textAlign: 'center' }}>
                 <div className="container">
                     <h1 className="animate-fade-up" style={{ fontSize: 'clamp(48px, 8vw, 80px)', fontWeight: '800', letterSpacing: '-0.02em', margin: '0 0 1.5rem 0' }}>
-                        Meet the Founders
+                        Meet the Leadership
                     </h1>
                     <p className="animate-fade-up delay-100" style={{ fontSize: 'clamp(20px, 3vw, 28px)', color: 'var(--text-secondary)', maxWidth: '900px', margin: '0 auto', fontWeight: '400' }}>
-                        The Directors shaping the future of human performance, discipline, and health technology.
+                        The team shaping the future of human performance, discipline, and health technology.
                     </p>
                 </div>
             </section>
 
             {/* FOUNDERS GRID */}
             <section style={{ padding: '80px 0', background: 'var(--bg-secondary)' }}>
-                <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem' }}>
+                <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3rem' }}>
 
                     {/* Sukumar */}
-                    <div className="animate-fade-up delay-100" style={{ position: 'relative', background: 'var(--bg-primary)', padding: '12rem 3rem 4rem 3rem', borderRadius: '24px', border: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', marginTop: '140px' }}>
+                    <div className="animate-fade-up delay-100" style={{ position: 'relative', background: 'var(--bg-primary)', padding: '12rem 3rem 4rem 3rem', borderRadius: '24px', border: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', marginTop: '140px', width: '100%', maxWidth: '500px' }}>
 
                         <div style={{ position: 'absolute', top: '-160px', left: '2rem', height: '420px', pointerEvents: 'none', zIndex: 10, WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)', maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)' }}>
                             <img src={sukumarImg} alt="Sukumar Pilli" style={{ height: '100%', width: 'auto', objectFit: 'contain', objectPosition: 'bottom left' }} />
@@ -62,40 +62,49 @@ export default function About() {
                     </div>
 
                     {/* Ram */}
-                    <div className="animate-fade-up delay-200" style={{ position: 'relative', background: 'var(--bg-primary)', padding: '12rem 3rem 4rem 3rem', borderRadius: '24px', border: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', marginTop: '140px' }}>
+                    <div className="animate-fade-up delay-200" style={{ 
+                        position: 'relative',
+                        background: 'linear-gradient(145deg, var(--bg-primary) 0%, rgba(10,12,15,1) 100%)',
+                        padding: '3rem 2.5rem', 
+                        borderRadius: '16px', 
+                        border: '1px solid rgba(255,255,255,0.05)', 
+                        display: 'flex', 
+                        flexDirection: 'row',
+                        flexWrap: 'wrap',
+                        alignItems: 'center',
+                        gap: '2.5rem',
+                        marginTop: '0',
+                        width: '100%',
+                        maxWidth: '850px',
+                        boxShadow: '0 20px 40px rgba(0,0,0,0.3)'
+                    }}>
 
-                        <div style={{ position: 'absolute', top: '-160px', left: '2rem', height: '420px', pointerEvents: 'none', zIndex: 10, WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)', maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)' }}>
-                            <img src={ramImg} alt="Ram Mamillapalli" style={{ height: '100%', width: 'auto', objectFit: 'contain', objectPosition: 'bottom left' }} />
+                        {/* Circular Image with Glow */}
+                        <div style={{ position: 'relative', width: '130px', height: '130px', flexShrink: 0 }}>
+                            {/* Cyan glow background */}
+                            <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '140%', height: '140%', background: 'radial-gradient(circle, rgba(0,255,180,0.15) 0%, rgba(0,0,0,0) 65%)', zIndex: 0, filter: 'blur(10px)' }}></div>
+                            
+                            {/* Avatar container */}
+                            <div style={{ position: 'relative', width: '100%', height: '100%', borderRadius: '50%', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: '#111', zIndex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                <img src={ramImg} alt="Ram Mamillapalli" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+                            </div>
                         </div>
 
-                        <div style={{ position: 'relative', zIndex: 20, display: 'flex', flexDirection: 'column', flex: 1 }}>
-                            <h2 style={{ fontSize: '32px', fontWeight: '700', marginBottom: '0.5rem' }}>Ram Mamillapalli</h2>
-                            <h3 style={{ fontSize: '18px', fontWeight: '500', color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>Co-Founder & COO</h3>
-                            <a href="https://www.linkedin.com/in/ram-mamillapalli/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--text-primary)', textDecoration: 'none', marginBottom: '2rem', fontSize: '14px', fontWeight: '500' }}>
-                                View LinkedIn <ExternalLink size={16} />
-                            </a>
+                        {/* Content */}
+                        <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: '220px' }}>
+                            <h2 style={{ fontSize: '26px', fontWeight: '500', marginBottom: '0.4rem', fontFamily: 'Georgia, serif', color: '#fff' }}>Ram Mamillapalli</h2>
+                            <h3 style={{ fontSize: '12px', fontWeight: '600', color: 'rgba(255,255,255,0.6)', marginBottom: '1.2rem', letterSpacing: '0.15em', textTransform: 'uppercase' }}>COO</h3>
 
-                            <div style={{ marginBottom: '2rem', flex: 1 }}>
-                                <p style={{ marginBottom: '1rem', color: 'var(--text-secondary)' }}>
-                                    Ram is the engineering and design powerhouse of Fitt-X — bringing the product to life through modern development, visual identity, and seamless user experience.
-                                </p>
-                                <p style={{ marginBottom: '1.5rem', color: 'var(--text-secondary)' }}>
-                                    As Co-Founder, Director & Chief Technology & Design Officer, he handles all software-related tasks, engineering responsibilities, and technical operations at Fitt-X. He leads product execution, UI/UX, frontend engineering, and the premium futuristic aesthetic that defines the brand. His work ensures the platform is fast, elegant, stable, and visually world-class.
-                                </p>
-                                <h4 style={{ fontWeight: '600', marginBottom: '0.8rem', fontSize: '16px', color: 'var(--text-primary)' }}>Key Leadership Strengths:</h4>
-                                <ul style={{ listStyleType: 'none', padding: 0, margin: 0, color: 'var(--text-secondary)', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                                    <li>• Software engineering & technical architecture</li>
-                                    <li>• Design systems & user experience</li>
-                                    <li>• Brand aesthetic & visual storytelling</li>
-                                    <li>• AI-assisted prototyping & product execution</li>
-                                    <li>• Multidisciplinary creative direction</li>
-                                </ul>
-                            </div>
+                            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px', lineHeight: '1.7', marginBottom: '1.5rem', fontWeight: '400' }}>
+                                Ram is the engineering and design powerhouse of Fitt-X. As COO, he manages software-related tasks, engineering, and technical operations, leading product execution and bringing the product to life through modern development, visual identity, and seamless user experience.
+                            </p>
 
-                            <div style={{ background: 'var(--bg-secondary)', padding: '2rem', borderRadius: '16px' }}>
-                                <p style={{ fontStyle: 'italic', fontWeight: '500', color: 'var(--text-primary)', margin: 0, fontSize: '16px', lineHeight: '1.6' }}>
-                                    “To create technology that feels futuristic yet deeply human — and to make Fitt-X the most premium lifestyle-tech brand on the planet.”
-                                </p>
+                            <div>
+                                <a href="https://www.linkedin.com/in/ram-mamillapalli/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '30px', height: '30px', borderRadius: '50%', background: 'rgba(255,255,255,0.1)', color: '#fff', textDecoration: 'none', transition: 'background 0.3s' }}>
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                    </svg>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -115,10 +124,10 @@ export default function About() {
                         Sukumar initiated the concept to solve real problems: lack of discipline, digital addiction, inconsistent routines, rising stress levels, and the absence of tools that truly help people grow.
                     </p>
                     <p style={{ fontSize: '20px', color: 'var(--text-secondary)', marginBottom: '1.5rem', lineHeight: '1.8' }}>
-                        Ram joined soon after, bringing technical execution, design mastery, and product-building leadership to turn the vision into a functioning reality.
+                        Ram joined soon after, bringing technical execution, design mastery, and product-building to turn the vision into a functioning reality.
                     </p>
                     <p style={{ fontSize: '20px', color: 'var(--text-primary)', fontWeight: '500', lineHeight: '1.8', marginTop: '2rem' }}>
-                        Together, as Directors and Co-Founders, they built Fitt-X to be much more than a fitness product — it is a complete lifestyle ecosystem engineered for the next generation.
+                        Together, they built Fitt-X to be much more than a fitness product — it is a complete lifestyle ecosystem engineered for the next generation.
                     </p>
                 </div>
             </section>
